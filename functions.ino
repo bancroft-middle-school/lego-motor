@@ -18,7 +18,23 @@ void motorAttach(){
   Serial.begin(9600);
 }
 
-/*motorWrite(int value) {
- 
-}*/
+void motorWrite(int value) {
+  analogWrite(10, motorSpeed);
+  //Serial.println( readMotor() );
+  
+  if (readMotor() < value) {
+
+  digitalWrite(forwardPin, HIGH);
+  digitalWrite(backwardPin, LOW);
+  } 
+  else if (readMotor() > value) {
+
+  digitalWrite(forwardPin, LOW);
+  digitalWrite(backwardPin, HIGH);
+  }
+  else {
+   digitalWrite(forwardPin, LOW);
+  digitalWrite(backwardPin, LOW);
+  }
+}
 

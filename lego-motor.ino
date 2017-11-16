@@ -1,11 +1,14 @@
 #include <Encoder.h>
+
+#define tach1 2
+#define tach2 3 
 #define forwardPin 8
 #define backwardPin 9
 #define pwmPin 10
 
 
-Encoder myEnc(2, 3);
-int pwmValue = 1;
+Encoder myEnc(tach1, tach2);
+int motorSpeed = 80;
 
 void setup() {
   motorAttach();
@@ -14,9 +17,7 @@ void setup() {
 
 
 void loop() {
-  analogWrite(10, pwmValue);
-  Serial.println( readMotor() );
-  digitalWrite(backwardPin, HIGH);
+  motorWrite(300);
 }
 
 
